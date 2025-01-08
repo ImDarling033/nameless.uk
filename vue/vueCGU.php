@@ -9,6 +9,8 @@ En accédant ou en utilisant R3st0, vous acceptez sans réserve les présentes C
 
 <h2>2. Définitions</h2>
 
+
+
 <h3>
 - Site : Le site internet accessible à l'adresse <a href="./?action=accueil">www.r3st0.fr</a> .<br>
 - Utilisateur : Toute personne accédant au site, qu'elle soit enregistrée ou non.<br>

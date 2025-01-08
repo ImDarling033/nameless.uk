@@ -49,25 +49,42 @@ Les utilisateurs peuvent être invités à laisser des avis ou des commentaires 
 R3st0 se réserve le droit de modérer ou de supprimer tout contenu jugé inapproprié, sans préavis ni indemnisation.
 </h3>
 
-7. Responsabilité
+<h2>7. Responsabilité</h2>
+
+<h3>
 R3st0 met tout en œuvre pour assurer la fiabilité des informations présentées sur le site. Toutefois, nous ne pouvons garantir l'exactitude ou l'exhaustivité des informations fournies par les restaurants partenaires.
 
 R3st0 ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation du site ou des services.
+</h3>
 
-8. Données personnelles
+<h2>8. Données personnelles</h2>
+
+<h3>
 R3st0 collecte et traite les données personnelles des utilisateurs conformément à sa Politique de Confidentialité, accessible sur le site.
+</h3>
 
-9. Propriété intellectuelle
+<h2>9. Propriété intellectuelle</h2>
+
+<h3>
 Le contenu présent sur R3st0 (textes, images, logos, etc.) est protégé par les lois sur la propriété intellectuelle. Toute reproduction ou utilisation non autorisée est strictement interdite.
+</h3>
 
-10. Modification des CGU
+<h2>10. Modification des CGU</h2>
+
+<h3>
 R3st0 se réserve le droit de modifier les présentes CGU à tout moment. Les modifications entreront en vigueur dès leur publication sur le site.
+</h3>
 
-11. Droit applicable et juridiction
+<h2> 11. Droit applicable et juridiction </h2>
+
+<h3>
 Les présentes CGU sont régies par le droit français. Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux français.
+</h3>
 
-12. Contact
+<h2>12. Contact</h2>
+
+<h3>
 Pour toute question relative aux présentes CGU, vous pouvez nous contacter à l'adresse suivante : support@r3st0.fr.
-
+</h3>
 
 

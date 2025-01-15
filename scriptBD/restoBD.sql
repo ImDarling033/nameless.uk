@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  mer. 02 déc. 2020 à 17:47
--- Version du serveur :  10.4.6-MariaDB
--- Version de PHP :  7.3.9
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mer. 15 jan. 2025 à 09:48
+-- Version du serveur : 8.3.0
+-- Version de PHP : 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `restoBD`
+-- Base de données : `restobd`
 --
 
 -- --------------------------------------------------------
@@ -28,11 +27,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `photo`
 --
 
-CREATE TABLE `photo` (
-  `idP` bigint(20) NOT NULL,
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE IF NOT EXISTS `photo` (
+  `idP` bigint NOT NULL,
   `cheminP` varchar(255) DEFAULT NULL,
-  `idR` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idR` bigint DEFAULT NULL,
+  PRIMARY KEY (`idP`),
+  KEY `idR` (`idR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `photo`
@@ -60,32 +62,35 @@ INSERT INTO `photo` (`idP`, `cheminP`, `idR`) VALUES
 -- Structure de la table `resto`
 --
 
-CREATE TABLE `resto` (
-  `idR` bigint(20) NOT NULL,
+DROP TABLE IF EXISTS `resto`;
+CREATE TABLE IF NOT EXISTS `resto` (
+  `idR` bigint NOT NULL,
   `nomR` varchar(255) DEFAULT NULL,
   `numAdrR` varchar(20) DEFAULT NULL,
   `voieAdrR` varchar(255) DEFAULT NULL,
   `cpR` char(5) DEFAULT NULL,
   `villeR` varchar(255) DEFAULT NULL,
-  `descR` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `descR` text,
+  `telR` varchar(13) DEFAULT NULL,
+  PRIMARY KEY (`idR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `resto`
 --
 
-INSERT INTO `resto` (`idR`, `nomR`, `numAdrR`, `voieAdrR`, `cpR`, `villeR`, `descR`) VALUES
-(1, 'Florian', '9', 'rue Victor Hugo', '65000', 'Tarbes', 'Cuisine locale et gourmande'),
-(2, 'Le Monocle', '1', 'avenue Bertrand Barère', '65000', 'Tarbes', 'Ambiance feutrée et cosy'),
-(3, 'Tacos Avenue', '15', 'rue Brauhauban', '65000', 'Tarbes', 'Recettes de tacos inédites'),
-(4, 'Pizza Pasta', '8', 'avenue du Marché Brauhauban', '65000', 'Tarbes', 'Une des plus anciennes pizzerias de la ville, sans fioritures ni superflu.'),
-(5, 'Buffalo Grill', '', 'boulevard Kennedy', '65000', 'Tarbes', 'Bien plus qu\'un Steakhouse, c\'est la chaleureuse et authentique maison du BBQ'),
-(6, 'La Kantine', '9', 'rue Desaix', '65000', 'Tarbes', 'Petits plats bistrot et desserts maison'),
-(7, 'Taj Mahal', '13', 'rue du Maquis de Payolle', '65000', 'Tarbes', 'Cuisine indienne et ses mille saveurs'),
-(8, 'Biocoop Le Grand Pic', '17', 'route de Pau', '65000', 'Tarbes', 'L\'un des premiers restaurants Biocoop de France'),
-(9, 'Les Galopins', '8 bis', 'avenue des Forges', '65000', 'Tarbes', 'Ce bar-restaurant orné de fresques graphiques propose des plats classiques'),
-(10, 'Charlye et ses drôles de crêpes', '1', 'rue Ferrere', '65000', 'Tarbes', 'Drôles de crêpes !'),
-(11, 'Le Gold Burger', '8', 'place de Verdun', '65000', 'Tarbes', 'Restauration rapide');
+INSERT INTO `resto` (`idR`, `nomR`, `numAdrR`, `voieAdrR`, `cpR`, `villeR`, `descR`, `telR`) VALUES
+(1, 'Florian', '9', 'rue Victor Hugo', '65000', 'Tarbes', 'Cuisine locale et gourmande', '+33660898981'),
+(2, 'Le Monocle', '1', 'avenue Bertrand Barère', '65000', 'Tarbes', 'Ambiance feutrée et cosy', '+33660896781'),
+(3, 'Tacos Avenue', '15', 'rue Brauhauban', '65000', 'Tarbes', 'Recettes de tacos inédites', '+33660429835'),
+(4, 'Pizza Pasta', '8', 'avenue du Marché Brauhauban', '65000', 'Tarbes', 'Une des plus anciennes pizzerias de la ville, sans fioritures ni superflu.', '+33660420035'),
+(5, 'Buffalo Grill', '', 'boulevard Kennedy', '65000', 'Tarbes', 'Bien plus qu\'un Steakhouse, c\'est la chaleureuse et authentique maison du BBQ', '+33660428734'),
+(6, 'La Kantine', '9', 'rue Desaix', '65000', 'Tarbes', 'Petits plats bistrot et desserts maison', '+33609765081'),
+(7, 'Taj Mahal', '13', 'rue du Maquis de Payolle', '65000', 'Tarbes', 'Cuisine indienne et ses mille saveurs', '+33627456581'),
+(8, 'Biocoop Le Grand Pic', '17', 'route de Pau', '65000', 'Tarbes', 'L\'un des premiers restaurants Biocoop de France', '+33660346521'),
+(9, 'Les Galopins', '8 bis', 'avenue des Forges', '65000', 'Tarbes', 'Ce bar-restaurant orné de fresques graphiques propose des plats classiques', '+33660422983'),
+(10, 'Charlye et ses drôles de crêpes', '1', 'rue Ferrere', '65000', 'Tarbes', 'Drôles de crêpes !', '+33660425023'),
+(11, 'Le Gold Burger', '8', 'place de Verdun', '65000', 'Tarbes', 'Restauration rapide', '+33660465081');
 
 -- --------------------------------------------------------
 
@@ -93,10 +98,12 @@ INSERT INTO `resto` (`idR`, `nomR`, `numAdrR`, `voieAdrR`, `cpR`, `villeR`, `des
 -- Structure de la table `typecuisine`
 --
 
-CREATE TABLE `typecuisine` (
-  `idTC` bigint(20) NOT NULL,
-  `libelleTC` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `typecuisine`;
+CREATE TABLE IF NOT EXISTS `typecuisine` (
+  `idTC` bigint NOT NULL,
+  `libelleTC` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idTC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `typecuisine`
@@ -121,11 +128,13 @@ INSERT INTO `typecuisine` (`idTC`, `libelleTC`) VALUES
 -- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `utilisateur` (
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mailU` varchar(150) NOT NULL,
   `mdpU` varchar(50) DEFAULT NULL,
-  `pseudoU` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `pseudoU` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`mailU`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -133,35 +142,6 @@ CREATE TABLE `utilisateur` (
 
 INSERT INTO `utilisateur` (`mailU`, `mdpU`, `pseudoU`) VALUES
 ('lmct65@local.fr', 'lmct65', 'lmct65');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `photo`
---
-ALTER TABLE `photo`
-  ADD PRIMARY KEY (`idP`),
-  ADD KEY `idR` (`idR`);
-
---
--- Index pour la table `resto`
---
-ALTER TABLE `resto`
-  ADD PRIMARY KEY (`idR`);
-
---
--- Index pour la table `typecuisine`
---
-ALTER TABLE `typecuisine`
-  ADD PRIMARY KEY (`idTC`);
-
---
--- Index pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`mailU`);
 
 --
 -- Contraintes pour les tables déchargées

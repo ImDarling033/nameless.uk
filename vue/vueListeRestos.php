@@ -21,7 +21,10 @@ for ($i = 0; $i < count($listeRestos); $i++) {
             <br />
             <?= $listeRestos[$i]["cpR"] ?>
             <?= $listeRestos[$i]["villeR"] ?>
+            <br />
+            <?= $listeRestos[$i]["telR"] ?>
         </div>
+        
 		
 		<!--
 		<div class="tagCard">

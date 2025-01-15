@@ -11,6 +11,8 @@ $listeRestos = getRestos();
 // traitement si necessaire des donnees recuperees
 ;
 
+          
+
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Liste des restaurants répertoriés";
 include "$racine/vue/entete.html.php";

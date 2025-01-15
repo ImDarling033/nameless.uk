@@ -29,7 +29,8 @@
     <?= $unResto['numAdrR']; ?>
     <?= $unResto['voieAdrR']; ?><br />
     <?= $unResto['cpR']; ?>
-    <?= $unResto['villeR']; ?>
+    <?= $unResto['villeR']; ?><br/>
+    <?= $unResto['telR']; ?>
 </p>
 
 <h2 id="photos">

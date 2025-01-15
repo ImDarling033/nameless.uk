@@ -2,7 +2,6 @@
 
 include_once "$racine/modele/authentification.inc.php";
 include_once "$racine/modele/bd.utilisateur.inc.php";
-include_once "$racine/modele/bd.typecuisine.inc.php";
 include_once "$racine/modele/bd.resto.inc.php";
 
 // creation du menu burger

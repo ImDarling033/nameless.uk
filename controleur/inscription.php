@@ -15,7 +15,7 @@ if (isset($_POST["mailU"]) && isset($_POST["mdpU"]) && isset($_POST["pseudoU"]))
 
     if ($_POST["mailU"] != "" && $_POST["mdpU"] != "" && $_POST["pseudoU"] != "") {
         $mailU = $_POST["mailU"];
-        $mdpU = $_POST["mdpU"];
+        $mdpU = crypt($_POST["mdpU"], 'rl'); // Utilisation de crypt() pour hacher le mot de passe avec un sel
         $pseudoU = $_POST["pseudoU"];
 
         // enregistrement des donnees
@@ -45,3 +45,4 @@ if ($inscrit) {
     include "$racine/vue/pied.html.php";
 }
 ?>
+

@@ -19,15 +19,16 @@ else
 {
     $mailU=$_POST["mailU"];
     $mdpU=$_POST["mdpU"];
-    
-    login($mailU,$mdpU);
 
-    if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur monProfil
+    login($mailU,$mdpU);
+    
+    if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur profil
         include "$racine/controleur/monProfil.php";
     }
     else{
         // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
         $titre = "authentification";
+        $msg = "Email ou mot de passe incorrect";
         include "$racine/vue/entete.html.php";
         include "$racine/vue/vueAuthentification.php";
         include "$racine/vue/pied.html.php";
@@ -35,3 +36,4 @@ else
 }
 
 ?>
+

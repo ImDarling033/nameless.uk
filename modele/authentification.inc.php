@@ -10,11 +10,13 @@ function login($mailU, $mdpU) {
     $util = getUtilisateurByMailU($mailU);
     $mdpBD = $util["mdpU"];
 
-    if ($mdpBD == $mdpU) {
+    if (hash_equals($mdpBD, crypt($mdpU, $mdpBD))) {
         // le mot de passe est celui de l'utilisateur dans la base de donnees
         $_SESSION["mailU"] = $mailU;
         $_SESSION["mdpU"] = $mdpBD;
+        return true;
     }
+    return false;
 }
 
 function logout() {
@@ -50,5 +52,9 @@ function isLoggedOn() {
         }
     }
     return $ret;
+}
+
+function hashPassword($pwd) {
+    return password_hash($pwd, PASSWORD_DEFAULT);
 }
 ?>

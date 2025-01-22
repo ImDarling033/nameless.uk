@@ -45,4 +45,22 @@
 
 <h2 id="crit">Critiques</h2>
 <ul id="critiques">
+
+    <form action="./?action=inscription" method="POST">
+
+        <input type="text" name="com" placeholder="Commentaire" /><br />
+        <input type="submit" value="Envoyer" />
+
+    </form>
+
+    <?php foreach ($commentaire): ?>
+        <div class="">
+            <strong><?= $commentaire['pseudoU'] ?></strong>
+            <p><?= $commentaire['com'] ?></p>
+            <small><?= $commentaire['dateHeurCom'] ?></small>
+        </div>
+    <?php endforeach; ?>
+
 </ul>
+
+

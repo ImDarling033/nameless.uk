@@ -53,7 +53,7 @@
 
     </form>
 
-    <?php foreach ($commentaire): ?>
+    <?php foreach ($commentaire as $com): ?>
         <div class="">
             <strong><?= $commentaire['pseudoU'] ?></strong>
             <p><?= $commentaire['com'] ?></p>

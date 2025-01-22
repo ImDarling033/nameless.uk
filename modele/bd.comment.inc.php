@@ -13,7 +13,7 @@ function getCommentaire($idResto) {
         
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        print "Erreur !: " . $e->getCommentaire();
+        print "Erreur !: " . $e->getMessage();
         die();
     }
     return $resultat;
@@ -32,7 +32,7 @@ function addCommentaire($com, $idUser, $dateHeureCom, $idResto, $id) {
         
         $resultat = $req->execute();
     } catch (PDOException $e) {
-        print "Erreur !: " . $e->getCommentaire();
+        print "Erreur !: " . $e->getMessage();
         die();
     }
     return $resultat;

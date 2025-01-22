@@ -46,4 +46,3 @@
 <h2 id="crit">Critiques</h2>
 <ul id="critiques">
 </ul>
-

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 15 jan. 2025 à 09:48
--- Version du serveur : 8.3.0
--- Version de PHP : 8.2.18
+-- Généré le : mer. 22 jan. 2025 à 09:55
+-- Version du serveur : 8.0.31
+-- Version de PHP : 8.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `restobd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaire`
+--
+
+DROP TABLE IF EXISTS `commentaire`;
+CREATE TABLE IF NOT EXISTS `commentaire` (
+  `com` varchar(255) DEFAULT NULL,
+  `idUser` int DEFAULT NULL,
+  `dateHeureCom` datetime DEFAULT NULL,
+  `idResto` int DEFAULT NULL,
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_commentaire_utilisateur` (`idUser`),
+  KEY `fk_commentaire_resto` (`idResto`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -133,15 +151,18 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mailU` varchar(150) NOT NULL,
   `mdpU` varchar(50) DEFAULT NULL,
   `pseudoU` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`mailU`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `idUser` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idUser`),
+  UNIQUE KEY `mailU` (`mailU`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`mailU`, `mdpU`, `pseudoU`) VALUES
-('lmct65@local.fr', 'lmct65', 'lmct65');
+INSERT INTO `utilisateur` (`mailU`, `mdpU`, `pseudoU`, `idUser`) VALUES
+('admin5@local.fr', 'rl836vO2Wg7T2', 'admin', 1),
+('lmct65@local.fr', 'lmct65', 'lmct65', 2);
 
 --
 -- Contraintes pour les tables déchargées

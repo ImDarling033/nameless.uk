@@ -53,14 +53,12 @@
 
     </form>
 
-    <?php foreach ($commentaire as $com): ?>
+    <?php foreach ($commentaires as $com): ?>
         <div class="">
-            <strong><?= $commentaire['pseudoU'] ?></strong>
-            <p><?= $commentaire['com'] ?></p>
-            <small><?= $commentaire['dateHeurCom'] ?></small>
+            <strong><?= $com['pseudoU'] ?></strong>
+            <p><?= $com['com'] ?></p>
+            <small><?= $com['dateHeureCom'] ?></small>
         </div>
     <?php endforeach; ?>
 
 </ul>
-
-

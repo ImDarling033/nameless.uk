@@ -7,11 +7,15 @@ function getCommentaire($idResto) {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from commentaire where idResto=:idResto");
+        $req = $cnx->prepare("select * from commentaire join utilisateur on commentaire.idUser= utilisateur.idUser where idResto=:idResto");
         $req->bindValue(':idResto', $idResto, PDO::PARAM_INT);
         $req->execute();
         
-        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();

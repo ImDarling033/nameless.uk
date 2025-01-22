@@ -1,6 +1,7 @@
 <?php
 include_once "$racine/modele/bd.resto.inc.php";
 include_once "$racine/modele/bd.photo.inc.php";
+include_once "$racine/modele/bd.comment.inc.php";
 
 // creation du menu burger
 $menuBurger = array();
@@ -15,6 +16,7 @@ $idR = $_GET["idR"];
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $unResto = getRestoByIdR($idR);
 $lesPhotos = getPhotosByIdR($idR);
+$commentaires = getCommentaire($idR)
 
 // traitement si necessaire des donnees recuperees
 ;

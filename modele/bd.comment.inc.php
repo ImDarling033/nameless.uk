@@ -23,16 +23,15 @@ function getCommentaire($idResto) {
     return $resultat;
 }
 
-function addCommentaire($com, $idUser, $dateHeureCom, $idResto, $id) {
+function addCommentaire($com, $idUser, $dateHeureCom, $idResto) {
     try {
         $cnx = connexionPDO();
 
-        $req = $cnx->prepare("insert into commentaire (com, idUser, dateHeureCom, idResto, id) values(:com, :idUser, :dateHeureCom, :idResto, :id)");
+        $req = $cnx->prepare("insert into commentaire (com, idUser, dateHeureCom, idResto) values(:com, :idUser, :dateHeureCom, :idResto)");
         $req->bindValue(':com', $com, PDO::PARAM_STR);
         $req->bindValue(':idUser', $idUser, PDO::PARAM_INT);
         $req->bindValue(':dateHeureCom', $dateHeureCom, PDO::PARAM_STR);
         $req->bindValue(':idResto', $idResto, PDO::PARAM_INT);
-        $req->bindValue(':id', $id, PDO::PARAM_INT);
         
         $resultat = $req->execute();
     } catch (PDOException $e) {

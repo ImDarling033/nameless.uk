@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 22 jan. 2025 à 09:55
--- Version du serveur : 8.0.31
--- Version de PHP : 8.1.13
+-- Généré le : mer. 29 jan. 2025 à 10:37
+-- Version du serveur : 8.3.0
+-- Version de PHP : 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,11 +33,20 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   `idUser` int DEFAULT NULL,
   `dateHeureCom` datetime DEFAULT NULL,
   `idResto` int DEFAULT NULL,
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   KEY `fk_commentaire_utilisateur` (`idUser`),
   KEY `fk_commentaire_resto` (`idResto`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `commentaire`
+--
+
+INSERT INTO `commentaire` (`com`, `idUser`, `dateHeureCom`, `idResto`, `id`) VALUES
+('tt', 1, '2025-01-29 09:21:34', 1, 1),
+('Test', 3, '2025-01-29 10:31:28', 1, 5),
+('M', 3, '2025-01-29 10:33:55', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -154,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `idUser` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `mailU` (`mailU`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -162,7 +171,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`mailU`, `mdpU`, `pseudoU`, `idUser`) VALUES
 ('admin5@local.fr', 'rl836vO2Wg7T2', 'admin', 1),
-('lmct65@local.fr', 'lmct65', 'lmct65', 2);
+('lmct65@local.fr', 'lmct65', 'lmct65', 2),
+('noah.sagot@nameless.uk', 'rlxSCeoRN2rX.', 'BlackOut', 3);
 
 --
 -- Contraintes pour les tables déchargées

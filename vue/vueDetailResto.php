@@ -1,24 +1,14 @@
-
-<h1><?= $unResto['nomR']; ?></h1>
+<h1><?= htmlspecialchars($unResto['nomR']); ?></h1>
 
 <section>
     Cuisine <br />
-	<!--
-	<ul id="tagFood">
-				
-		<li class="tag">
-			<span class="tag">#</span>
-		</li>
-
-	</ul>
-	-->
 </section>
 <p id="principal">   
-    <?= $unResto['descR']; ?>
+    <?= htmlspecialchars($unResto['descR']); ?>
 </p>
 <p id="principal">
     <?php if (count($lesPhotos) > 0) { ?>
-        <img src="photos/<?= $lesPhotos[0]["cheminP"] ?>" alt="photo du restaurant" />
+        <img src="photos/<?= htmlspecialchars($lesPhotos[0]["cheminP"]) ?>" alt="photo du restaurant" />
     <?php } ?>
 </p>
 
@@ -26,11 +16,11 @@
     Adresse
 </h2>
 <p>
-    <?= $unResto['numAdrR']; ?>
-    <?= $unResto['voieAdrR']; ?><br />
-    <?= $unResto['cpR']; ?>
-    <?= $unResto['villeR']; ?><br/>
-    <?= $unResto['telR']; ?>
+    <?= htmlspecialchars($unResto['numAdrR']); ?>
+    <?= htmlspecialchars($unResto['voieAdrR']); ?><br />
+    <?= htmlspecialchars($unResto['cpR']); ?>
+    <?= htmlspecialchars($unResto['villeR']); ?><br/>
+    <?= htmlspecialchars($unResto['telR']); ?>
 </p>
 
 <h2 id="photos">
@@ -38,26 +28,26 @@
 </h2>
 <ul id="galerie">
     <?php for ($i = 0; $i < count($lesPhotos); $i++) { ?>
-        <li> <img class="galerie" src="photos/<?= $lesPhotos[$i]["cheminP"] ?>" alt="" /></li>
+        <li> <img class="galerie" src="photos/<?= htmlspecialchars($lesPhotos[$i]["cheminP"]) ?>" alt="" /></li>
     <?php } ?>
-
 </ul>
 
 <h2 id="crit">Critiques</h2>
 <ul id="critiques">
 
-    <form method="POST">
+    <form method="POST" action="./?action=detail&idR=<?php echo $idR; ?>" >
 
-        <input type="text" name="com" placeholder="Commentaire" /><br />
-        <input type="submit" value="Envoyer" />
+        <input type="text" name="com" placeholder="Commentaire" required /><br />
+        <input type="hidden" name="idR" value="<?= htmlspecialchars($_GET['idR']) ?>" /> <!-- ID du restaurant -->
+        <input type="submit" name="Envoyer" value="Envoyer" />
 
     </form>
 
     <?php foreach ($commentaires as $com): ?>
         <div class="">
-            <strong><?= $com['pseudoU'] ?></strong>
-            <p><?= $com['com'] ?></p>
-            <small><?= $com['dateHeureCom'] ?></small>
+            <strong><?= htmlspecialchars($com['pseudoU']) ?></strong>
+            <p><?= htmlspecialchars($com['com']) ?></p>
+            <small><?= htmlspecialchars($com['dateHeureCom']) ?></small>
         </div>
     <?php endforeach; ?>
 

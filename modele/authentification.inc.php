@@ -14,6 +14,7 @@ function login($mailU, $mdpU) {
         // le mot de passe est celui de l'utilisateur dans la base de donnees
         $_SESSION["mailU"] = $mailU;
         $_SESSION["mdpU"] = $mdpBD;
+        $_SESSION["idUser"] = $util["idUser"];
         return true;
     }
     return false;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 29 jan. 2025 à 10:37
+-- Généré le : mer. 05 fév. 2025 à 10:37
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   PRIMARY KEY (`id`),
   KEY `fk_commentaire_utilisateur` (`idUser`),
   KEY `fk_commentaire_resto` (`idResto`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `commentaire`
@@ -46,7 +46,18 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
 INSERT INTO `commentaire` (`com`, `idUser`, `dateHeureCom`, `idResto`, `id`) VALUES
 ('tt', 1, '2025-01-29 09:21:34', 1, 1),
 ('Test', 3, '2025-01-29 10:31:28', 1, 5),
-('M', 3, '2025-01-29 10:33:55', 1, 6);
+('M', 3, '2025-01-29 10:33:55', 1, 6),
+('M', 3, '2025-01-29 10:39:24', 1, 7),
+('ca cook la ', 3, '2025-01-29 10:39:47', 11, 8),
+('slkdjfkdsflksdflksjdfmlksdf', 3, '2025-01-29 11:07:58', 1, 9),
+('c tro 2 la mer2', 5, '2025-01-29 11:12:59', 3, 10),
+('super §', 6, '2025-02-01 08:44:27', 1, 11),
+('gg', NULL, '2025-02-05 08:53:56', 2, 12),
+('gg', NULL, '2025-02-05 08:54:02', 2, 13),
+('Super !', 7, '2025-02-05 08:57:30', 2, 14),
+('s', 7, '2025-02-05 09:12:56', 3, 15),
+('G', 7, '2025-02-05 09:13:05', 6, 16),
+('j', 7, '2025-02-05 09:13:41', 11, 17);
 
 -- --------------------------------------------------------
 
@@ -161,18 +172,23 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mdpU` varchar(50) DEFAULT NULL,
   `pseudoU` varchar(50) DEFAULT NULL,
   `idUser` int NOT NULL AUTO_INCREMENT,
+  `Perms` int DEFAULT NULL,
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `mailU` (`mailU`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`mailU`, `mdpU`, `pseudoU`, `idUser`) VALUES
-('admin5@local.fr', 'rl836vO2Wg7T2', 'admin', 1),
-('lmct65@local.fr', 'lmct65', 'lmct65', 2),
-('noah.sagot@nameless.uk', 'rlxSCeoRN2rX.', 'BlackOut', 3);
+INSERT INTO `utilisateur` (`mailU`, `mdpU`, `pseudoU`, `idUser`, `Perms`) VALUES
+('admin5@local.fr', 'rl836vO2Wg7T2', 'admin', 1, 0),
+('lmct65@local.fr', 'lmct65', 'lmct65', 2, 0),
+('noah.sagot@nameless.uk', 'rlxSCeoRN2rX.', 'BlackOut', 3, 0),
+('ljfdskncxjfdkcxw,kdjvncxk,w', 'rlVQWD7Xs.LkI', 'w!cl;wx;cl;xwc', 4, 0),
+('1', 'rlykc4JxGoGu2', '1', 5, 0),
+('AZERT@AZERT.com', 'rl0DoXYjqaeZU', 'azerty', 6, 0),
+('test@test.test', 'rl1IV0t8l4rcQ', 'test', 7, 0);
 
 --
 -- Contraintes pour les tables déchargées

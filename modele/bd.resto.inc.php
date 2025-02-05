@@ -38,5 +38,8 @@ function getRestos() {
     return $resultat;
 }
 
+function editResto(){
+    
+}
 
 ?>

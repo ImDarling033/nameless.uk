@@ -17,9 +17,10 @@ if (isset($_POST["mailU"]) && isset($_POST["mdpU"]) && isset($_POST["pseudoU"]))
         $mailU = $_POST["mailU"];
         $mdpU = crypt($_POST["mdpU"], 'rl'); // Utilisation de crypt() pour hacher le mot de passe avec un sel
         $pseudoU = $_POST["pseudoU"];
+        $Perms = 0; // 0 = user 1 = admin
 
         // enregistrement des donnees
-        $ret = addUtilisateur($mailU, $mdpU, $pseudoU);
+        $ret = addUtilisateur($mailU, $mdpU, $pseudoU, $Perms);
         if ($ret) {
             $inscrit = true;
         } else {
@@ -45,4 +46,3 @@ if ($inscrit) {
     include "$racine/vue/pied.html.php";
 }
 ?>
-

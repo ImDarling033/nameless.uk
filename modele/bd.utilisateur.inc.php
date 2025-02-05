@@ -19,14 +19,15 @@ function getUtilisateurByMailU($mailU) {
     return $resultat;
 }
 
-function addUtilisateur($mailU, $mdpU, $pseudoU) {
+function addUtilisateur($mailU, $mdpU, $pseudoU, $Perms) {
     try {
         $cnx = connexionPDO();
 
-        $req = $cnx->prepare("insert into utilisateur (mailU, mdpU, pseudoU) values(:mailU,:mdpU,:pseudoU)");
+        $req = $cnx->prepare("insert into utilisateur (mailU, mdpU, pseudoU, Perms) values(:mailU,:mdpU,:pseudoU,:Perms)");
         $req->bindValue(':mailU', $mailU, PDO::PARAM_STR);
         $req->bindValue(':mdpU', $mdpU, PDO::PARAM_STR);
         $req->bindValue(':pseudoU', $pseudoU, PDO::PARAM_STR);
+        $req->bindValue(':Perms', $Perms, PDO::PARAM_INT);
         
         $resultat = $req->execute();
     } catch (PDOException $e) {
